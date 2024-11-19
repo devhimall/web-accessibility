@@ -195,5 +195,47 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown")
+        const dropdownToggle = dropdown.querySelector(".dropdown-toggle")
+        const dropdownMenu = dropdown.querySelector(".dropdown-menu")
+        const dropdownItems = dropdownMenu.querySelectorAll(".dropdown-item")
+
+        // Show dropdown menu on focus
+        dropdownToggle.addEventListener("focus", () => {
+          dropdown.classList.add("show")
+          dropdownMenu.classList.add("show")
+          dropdownToggle.setAttribute("aria-expanded", "true")
+        })
+
+        // Keep dropdown menu open while tabbing through items
+        dropdownItems.forEach((item) => {
+          item.addEventListener("focus", () => {
+            dropdown.classList.add("show")
+            dropdownMenu.classList.add("show")
+            dropdownToggle.setAttribute("aria-expanded", "true")
+          })
+
+          item.addEventListener("blur", (e) => {
+            if (!dropdownMenu.contains(e.relatedTarget)) {
+              dropdown.classList.remove("show")
+              dropdownMenu.classList.remove("show")
+              dropdownToggle.setAttribute("aria-expanded", "false")
+            }
+          })
+        })
+
+        // Hide dropdown menu when leaving the dropdown
+        dropdownToggle.addEventListener("blur", (e) => {
+          if (!dropdownMenu.contains(e.relatedTarget)) {
+            dropdown.classList.remove("show")
+            dropdownMenu.classList.remove("show")
+            dropdownToggle.setAttribute("aria-expanded", "false")
+          }
+        })
+      })
+    </script>
   </body>
 </html>
