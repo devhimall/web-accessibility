@@ -1,234 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Accessibility</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <div class="container-fluid">
-      <!-- start of navbar -->
-      <nav
-        class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4"
-      >
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Outside</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link disabled"
-                  href="#"
-                  tabindex="-1"
-                  aria-disabled="true"
-                  >Disabled</a
-                >
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Accessibility</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+<style>
+  * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+
+  #skip-button {
+    top: -200px;
+    left: 10px;
+    z-index: 999;
+    border: none;
+    width: fit-content;
+    color: #fff;
+
+    &:focus {
+      top: 20px;
+    }
+  }
+</style>
+
+<body style="height:max(auto, 100vh); width:100vw; display:flex; flex-direction: column;">
+  <a href="#main-content" id="skip-button" tabindex="1"
+    class="container-fluid py-4 px-4 flex flex-column bg-primary position-absolute  border z-3">
+    Skip to the main content</a>
+  <div class="container-fluid border-5 border-dander z-0" tabindex="3" style="height:100vh">
+    <!-- Tabbing -->
+
+    <!-- start of navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Outside</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <!-- end of navbar -->
+    <!-- end of navbar -->
 
-      <!-- start of form seciton -->
-      <section class="container">
-        <form>
-          <fieldset>
-            <legend>Contact us</legend>
-            <div class="row">
-              <section class="left col-12 col-md-6">
-                <div class="row g-2">
-                  <div class="form-floating mb-3 col-12 col-sm-6">
-                    <input
-                      type="firstname"
-                      class="form-control"
-                      id="floatingInput"
-                      placeholder="firstname"
-                    />
-                    <label for="floatingInput"
-                      >First name <strong>*</strong></label
-                    >
-                  </div>
-                  <div class="form-floating mb-3 col-12 col-sm-6 rounded-2">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="floatingLastname"
-                      placeholder="Password"
-                    />
-                    <label for="floatingLastname"
-                      >Last name <strong>*</strong></label
-                    >
-                  </div>
-                  <div class="form-floating mb-3 col-12 col-sm-6">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="floatingEmail"
-                      placeholder="Password"
-                    />
-                    <label for="floatingEmail">Work email</label>
-                  </div>
-                  <div class="form-floating mb-3 col-12 col-sm-6">
-                    <input
-                      type="text"
-                      id="floatingInputtCompany"
-                      placeholder="Company"
-                      class="form-control"
-                      name="floatingcompany"
-                    />
-                    <label for="floatingInputtCompany"
-                      >Company <strong>*</strong></label
-                    >
-                  </div>
-                  <div class="form-floating mb-3 col-12 col-sm-6">
-                    <input
-                      type="text"
-                      id="floatingJobTitle"
-                      placeholder="Job Title"
-                      name="job"
-                      class="form-control"
-                    />
-                    <label for="floatingJobTitle"
-                      >Job Title <strong>*</strong></label
-                    >
-                  </div>
-                  <div class="form-floating mb-3 col-12 col-sm-6">
-                    <input
-                      type="number"
-                      class="form-control"
-                      name="number"
-                      id="floatingNumber"
-                      placeholder="number "
-                    />
-                    <label for="floatingNumber">Phone Number (optional)</label>
-                  </div>
-                  <div class="mb-3 form-check">
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      id="exampleCheck1"
-                    />
-                    <label class="form-check-label" for="exampleCheck1"
-                      >I agree with the privacy notice.</label
-                    >
-                  </div>
+    <!-- start of form seciton -->
+    <section class="container mt-[500px] h-100  border" tabindex="2" id="main-content" style="margin-top: 700px;">
+      <form>
+        <fieldset>
+          <legend>Contact us</legend>
+          <div class="row">
+            <section class="left col-12 col-md-6">
+              <div class="row g-2">
+                <div class="form-floating mb-3 col-12 col-sm-6">
+                  <input type="firstname" class="form-control" id="floatingInput" placeholder="firstname" />
+                  <label for="floatingInput">First name <strong>*</strong></label>
                 </div>
-              </section>
-              <section class="right col-12 col-md-6 row gx-2 mb-3">
-                <div class="form-floating">
-                  <textarea
-                    class="form-control"
-                    placeholder="Leave a comment here"
-                    id="floatingTextarea"
-                    style="height: 220px"
-                  ></textarea>
-                  <label for="floatingTextarea">How can we help you?</label>
+                <div class="form-floating mb-3 col-12 col-sm-6 rounded-2">
+                  <input type="text" class="form-control" id="floatingLastname" placeholder="Password" />
+                  <label for="floatingLastname">Last name <strong>*</strong></label>
                 </div>
-              </section>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </fieldset>
-        </form>
-      </section>
-      <!-- end of form section -->
-    </div>
+                <div class="form-floating mb-3 col-12 col-sm-6">
+                  <input type="email" class="form-control" id="floatingEmail" placeholder="Password" />
+                  <label for="floatingEmail">Work email</label>
+                </div>
+                <div class="form-floating mb-3 col-12 col-sm-6">
+                  <input type="text" id="floatingInputtCompany" placeholder="Company" class="form-control"
+                    name="floatingcompany" />
+                  <label for="floatingInputtCompany">Company <strong>*</strong></label>
+                </div>
+                <div class="form-floating mb-3 col-12 col-sm-6">
+                  <input type="text" id="floatingJobTitle" placeholder="Job Title" name="job" class="form-control" />
+                  <label for="floatingJobTitle">Job Title <strong>*</strong></label>
+                </div>
+                <div class="form-floating mb-3 col-12 col-sm-6">
+                  <input type="number" class="form-control" name="number" id="floatingNumber" placeholder="number " />
+                  <label for="floatingNumber">Phone Number (optional)</label>
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                  <label class="form-check-label" for="exampleCheck1">I agree with the privacy notice.</label>
+                </div>
+              </div>
+            </section>
+            <section class="right col-12 col-md-6 row gx-2 mb-3">
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                  style="height: 220px"></textarea>
+                <label for="floatingTextarea">How can we help you?</label>
+              </div>
+            </section>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+      </form>
+    </section>
+    <!-- end of form section -->
+  </div>
 
-    <!-- scripts  -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+  <!-- scripts  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const dropdown = document.querySelector(".dropdown")
-        const dropdownToggle = dropdown.querySelector(".dropdown-toggle")
-        const dropdownMenu = dropdown.querySelector(".dropdown-menu")
-        const dropdownItems = dropdownMenu.querySelectorAll(".dropdown-item")
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdown = document.querySelector(".dropdown")
+      const dropdownToggle = dropdown.querySelector(".dropdown-toggle")
+      const dropdownMenu = dropdown.querySelector(".dropdown-menu")
+      const dropdownItems = dropdownMenu.querySelectorAll(".dropdown-item")
+      const skipButton = document.getElementById('skip-button')
 
-        // Show dropdown menu on focus
-        dropdownToggle.addEventListener("focus", () => {
+
+      // Ensure focus goes to main content
+      skipButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const mainContent = document.getElementById('main-content');
+        if (mainContent) {
+          mainContent.focus();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          if (skipButton) {
+            skipButton.click();
+          }
+        }
+      });
+
+      // Show dropdown menu on focus
+      dropdownToggle.addEventListener("focus", () => {
+        dropdown.classList.add("show")
+        dropdownMenu.classList.add("show")
+        dropdownToggle.setAttribute("aria-expanded", "true")
+      })
+
+      // Keep dropdown menu open while tabbing through items
+      dropdownItems.forEach((item) => {
+        item.addEventListener("focus", () => {
           dropdown.classList.add("show")
           dropdownMenu.classList.add("show")
           dropdownToggle.setAttribute("aria-expanded", "true")
         })
 
-        // Keep dropdown menu open while tabbing through items
-        dropdownItems.forEach((item) => {
-          item.addEventListener("focus", () => {
-            dropdown.classList.add("show")
-            dropdownMenu.classList.add("show")
-            dropdownToggle.setAttribute("aria-expanded", "true")
-          })
-
-          item.addEventListener("blur", (e) => {
-            if (!dropdownMenu.contains(e.relatedTarget)) {
-              dropdown.classList.remove("show")
-              dropdownMenu.classList.remove("show")
-              dropdownToggle.setAttribute("aria-expanded", "false")
-            }
-          })
-        })
-
-        // Hide dropdown menu when leaving the dropdown
-        dropdownToggle.addEventListener("blur", (e) => {
+        item.addEventListener("blur", (e) => {
           if (!dropdownMenu.contains(e.relatedTarget)) {
             dropdown.classList.remove("show")
             dropdownMenu.classList.remove("show")
@@ -236,6 +193,17 @@
           }
         })
       })
-    </script>
-  </body>
+
+      // Hide dropdown menu when leaving the dropdown
+      dropdownToggle.addEventListener("blur", (e) => {
+        if (!dropdownMenu.contains(e.relatedTarget)) {
+          dropdown.classList.remove("show")
+          dropdownMenu.classList.remove("show")
+          dropdownToggle.setAttribute("aria-expanded", "false")
+        }
+      })
+    })
+  </script>
+</body>
+
 </html>
